@@ -1,5 +1,6 @@
 import { Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
+import Login from "./components/Login";
 
 const App = () => {
   return (
@@ -17,9 +18,7 @@ const App = () => {
           }
         </Route>
         <Route path="/login">
-          {
-            // LOGIN
-          }
+          <Login />
         </Route>
         <Route path="/" exact>
           {
