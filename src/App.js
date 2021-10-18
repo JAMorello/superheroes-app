@@ -1,29 +1,32 @@
+import { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Login from "./components/Login";
+import Home from "./components/Home";
+import Search from "./components/Search";
 
 const App = () => {
+  const [response, setResponse] = useState({ token: "", error: "" });
+
+  useEffect(() => {
+    localStorage.setItem("token", response.token);
+  }, [response]);
+
   return (
     <>
-      <Header />
+      <Header token={response.token} setResponse={setResponse} />
       <Switch>
         <Route path="/home">
-          {
-            // HOME
-          }
+          <Home />
         </Route>
         <Route path="/search">
-          {
-            // SEARCH
-          }
+          <Search />
         </Route>
         <Route path="/login">
-          <Login />
+          <Login setResponse={setResponse} />
         </Route>
         <Route path="/" exact>
-          {
-            // HOME
-          }
+          <Home />
         </Route>
         <Route path="*">
           {
