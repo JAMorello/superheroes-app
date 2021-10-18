@@ -1,6 +1,22 @@
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ token, setResponse }) => {
+  const history = useHistory(); // To redirect
+
+  // LOGOUT
+  // Set token to an empty string and redirect to login
+  const handleLogout = () => {
+    setResponse({ token: "", error: "" });
+    localStorage.setItem("token", "");
+    history.push("/login");
+  };
+
+  /* 
+  This component consist on four elements: 
+    - two <li> that redirect to Home or Search in case that the login token exist 
+    - the logo of the app
+    - and the button that takes the user to the login page (that same button turns to a Logout one if the user is already loged)
+  */
   return (
     <div>
       <nav>
@@ -14,9 +30,11 @@ const Header = () => {
         </ul>
       </nav>
       <h1>Superheroes App</h1>
-      <button>
-        <Link to="/login">Login</Link>
-      </button>
+      {!token ? (
+        <button onClick={() => history.push("/login")}>Login</button>
+      ) : (
+        <button onClick={handleLogout}>Logout</button>
+      )}
     </div>
   );
 };
