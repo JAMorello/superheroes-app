@@ -1,6 +1,15 @@
+import { useState } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
+import { useHistory } from "react-router-dom";
+import postLogin from "../api/petitions";
 
-const Login = () => {
+const Login = ({ setResponse }) => {
+  // State to control the "Send" button. Disable when is submiting a HTTP
+  // petition
+  const [isDisabled, setIsDisabled] = useState(false);
+
+  let history = useHistory(); // To redirect
+
   return (
     <Formik
       initialValues={{ email: "", password: "" }}
@@ -20,10 +29,9 @@ const Login = () => {
 
         return errors;
       }}
-      onSubmit={(values) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-        }, 200);
+      onSubmit={async (values) => {
+        await postLogin(values, setIsDisabled, setResponse);
+        history.push("/home");
       }}
     >
       <Form>
@@ -35,7 +43,9 @@ const Login = () => {
         <Field name="password" type="password" />
         <ErrorMessage name="password" />
 
-        <button type="submit">Send</button>
+        <button type="submit" disabled={isDisabled}>
+          Send
+        </button>
       </Form>
     </Formik>
   );
