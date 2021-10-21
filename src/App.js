@@ -19,6 +19,12 @@ const App = () => {
     setTeam([...team, heroToAdd]);
   };
 
+  const removeFromTeam = (heroToRemove) => {
+    const heroID = heroToRemove.id;
+    const newTeam = team.filter((e) => e.id !== heroID);
+    setTeam(newTeam);
+  };
+
   const checkExistence = (heroToAdd) => {
     const heroID = heroToAdd.id;
     for (let i = 0; i < team.length; i++) {
@@ -30,7 +36,9 @@ const App = () => {
   // Check if the team already has 3 members of the same alignment
   const checkAlignment = (heroToAdd) => {
     const alignment = heroToAdd.biography.alignment;
-    const alignmentArray = team.map((e) => e.biography.alignment === alignment);
+    const alignmentArray = team.filter(
+      (e) => e.biography.alignment === alignment
+    );
     return alignmentArray.length === 3;
   };
 
@@ -39,7 +47,7 @@ const App = () => {
       <Header token={response.token} setResponse={setResponse} />
       <Switch>
         <Route path="/home">
-          <Home team={team} />
+          <Home team={team} removeFromTeam={removeFromTeam} />
         </Route>
         <Route path="/search">
           <Search
