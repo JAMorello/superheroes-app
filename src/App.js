@@ -42,6 +42,11 @@ const App = () => {
     return alignmentArray.length === 3;
   };
 
+  // This is the state of the Search component.
+  // It was lifted to avoid losing it/ to avoid reset
+  // when navigating to other pages
+  const [results, setResults] = useState(null);
+
   return (
     <>
       <Header token={response.token} setResponse={setResponse} />
@@ -51,6 +56,8 @@ const App = () => {
         </Route>
         <Route path="/search">
           <Search
+            results={results}
+            setResults={setResults}
             addToTeam={addToTeam}
             checkExistence={checkExistence}
             checkAlignment={checkAlignment}
