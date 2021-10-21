@@ -33,4 +33,25 @@ const postLogin = async (values, setIsDisabled, setResponse) => {
   setResponse(res);
 };
 
-export default postLogin;
+// SUPERHERO API
+// ACCESS TOKEN: 1751652158357148
+const accessToken = "1751652158357148";
+
+// CORS ISSUE WORKAROUND
+// Go check: https://github.com/Rob--W/cors-anywhere
+const corsHelper = "https://cors-anywhere.herokuapp.com/";
+
+const axiosInstance = axios.create({
+  baseURL: `${corsHelper}https://superheroapi.com/api/${accessToken}/search`,
+});
+
+const searchAPI = async (search) => {
+  try {
+    const response = await axiosInstance.get(`/${search}`);
+    return response.data.results;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export { postLogin, searchAPI };
