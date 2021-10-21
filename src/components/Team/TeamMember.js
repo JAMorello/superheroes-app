@@ -1,4 +1,4 @@
-const TeamMember = ({ hero }) => {
+const TeamMember = ({ hero, removeFromTeam }) => {
   return (
     <li>
       <p>{hero.name}</p>
@@ -13,7 +13,7 @@ const TeamMember = ({ hero }) => {
       </div>
       <div>
         <button>Details</button>
-        <button>Remove</button>
+        <button onClick={() => removeFromTeam(hero)}>Remove</button>
       </div>
     </li>
   );
