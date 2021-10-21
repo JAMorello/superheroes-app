@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { useHistory } from "react-router-dom";
-import postLogin from "../api/petitions";
+import { postLogin } from "../api/petitions";
 
 const Login = ({ setResponse }) => {
   // State to control the "Send" button. Disable when is submiting a HTTP
