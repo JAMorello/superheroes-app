@@ -1,4 +1,5 @@
 import TeamList from "./Team/TeamList";
+import TeamStats from "./Team/TeamStats"
 import useToken from "../customHooks/useToken";
 
 const Home = ({ team, removeFromTeam }) => {
@@ -6,7 +7,9 @@ const Home = ({ team, removeFromTeam }) => {
   useToken();
 
   return (
-    <>{team && <TeamList team={team} removeFromTeam={removeFromTeam} />}</>
+    <>{team && <TeamStats team={team}/>}
+    {team && <TeamList team={team} removeFromTeam={removeFromTeam} />}
+    </>
   );
 };
 
