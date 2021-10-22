@@ -1,5 +1,4 @@
 const HeroItem = ({ hero, addToTeam, checkExistence, checkAlignment }) => {
-  console.log(hero);
   return (
     <li>
       <div>
