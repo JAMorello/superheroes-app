@@ -1,10 +1,10 @@
 import TeamMember from "./TeamMember";
 
-const TeamList = ({ team, removeFromTeam }) => {
+const TeamList = ({ team, removeFromTeam, setShowDetails }) => {
   return (
     <>
       {team.map((e) => (
-        <TeamMember key={e.id} hero={e} removeFromTeam={removeFromTeam} />
+        <TeamMember key={e.id} hero={e} removeFromTeam={removeFromTeam} setShowDetails={setShowDetails} />
       ))}
     </>
   );
