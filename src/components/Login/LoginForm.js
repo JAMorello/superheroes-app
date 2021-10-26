@@ -35,17 +35,39 @@ const LoginForm = ({ setResponse }) => {
       }}
     >
       <Form>
-        <label htmlFor="email">Email</label>
-        <Field name="email" type="email" />
-        <ErrorMessage name="email" />
+        <div className="mb-4">
+          <label htmlFor="email" className="form-label">
+            Email
+          </label>
+          <Field name="email" type="email" className="form-control" />
+          <ErrorMessage
+            name="email"
+            component="p"
+            className="fst-italic text-danger"
+          />
+        </div>
 
-        <label htmlFor="password">Password</label>
-        <Field name="password" type="password" />
-        <ErrorMessage name="password" />
+        <div className="mb-4">
+          <label htmlFor="password" className="form-label">
+            Password
+          </label>
+          <Field name="password" type="password" className="form-control" />
+          <ErrorMessage
+            name="password"
+            component="p"
+            className="fst-italic text-danger"
+          />
+        </div>
 
-        <button type="submit" disabled={isDisabled}>
-          Send
-        </button>
+        <div className="d-grid">
+          <button
+            type="submit"
+            disabled={isDisabled}
+            className="btn btn-primary"
+          >
+            Send
+          </button>
+        </div>
       </Form>
     </Formik>
   );

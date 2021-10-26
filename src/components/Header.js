@@ -73,7 +73,7 @@ const Header = ({ token, setResponse, currentPage }) => {
               ) : (
                 <button
                   onClick={handleLogout}
-                  className="btn btn-outline-success"
+                  className="btn btn-outline-danger"
                 >
                   Logout
                 </button>
