@@ -1,6 +1,8 @@
 import { Link, useHistory } from "react-router-dom";
+import Logo from "../images/Logo.png";
+import { GiHamburgerMenu } from "react-icons/gi";
 
-const Header = ({ token, setResponse }) => {
+const Header = ({ token, setResponse, currentPage }) => {
   const history = useHistory(); // To redirect
 
   // LOGOUT
@@ -18,24 +20,69 @@ const Header = ({ token, setResponse }) => {
     - and the button that takes the user to the login page (that same button turns to a Logout one if the user is already loged)
   */
   return (
-    <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/home">Home</Link>
-          </li>
-          <li>
-            <Link to="/search">Search</Link>
-          </li>
-        </ul>
-      </nav>
-      <h1>Superheroes App</h1>
-      {!token ? (
-        <button onClick={() => history.push("/login")}>Login</button>
-      ) : (
-        <button onClick={handleLogout}>Logout</button>
-      )}
-    </div>
+    <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div className="container-fluid">
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#togglerMenu"
+          aria-controls="togglerMenu"
+          aria-expanded={false}
+          aria-label="Toggle navigation"
+        >
+          <GiHamburgerMenu />
+        </button>
+        <Link to="/home">
+          <img
+            src={Logo}
+            alt="Superheroes App"
+            width="200"
+            height="50"
+            className="d-inline-block align-text-top"
+          />
+        </Link>
+        <div className="collapse navbar-collapse" id="togglerMenu">
+          <ul className="navbar-nav ms-auto">
+            <li className="nav-item text-light">
+              <Link
+                to="/home"
+                className={`nav-link ${currentPage === "Home" ? "active" : ""}`}
+              >
+                Home
+              </Link>
+            </li>
+            <li className="nav-item text-light">
+              <Link
+                to="/search"
+                className={`nav-link ${
+                  currentPage === "Search" ? "active" : ""
+                }`}
+              >
+                Search
+              </Link>
+            </li>
+            <li className="nav-item">
+              {!token ? (
+                <button
+                  onClick={() => history.push("/login")}
+                  className="btn btn-outline-success"
+                >
+                  Login
+                </button>
+              ) : (
+                <button
+                  onClick={handleLogout}
+                  className="btn btn-outline-success"
+                >
+                  Logout
+                </button>
+              )}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 };
 

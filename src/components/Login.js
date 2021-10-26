@@ -3,12 +3,14 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import { useHistory } from "react-router-dom";
 import { postLogin } from "../api/petitions";
 
-const Login = ({ setResponse }) => {
+const Login = ({ setResponse, setCurrentPage }) => {
   // State to control the "Send" button. Disable when is submiting a HTTP
   // petition
   const [isDisabled, setIsDisabled] = useState(false);
 
   let history = useHistory(); // To redirect
+
+  setCurrentPage("Login");
 
   return (
     <Formik

@@ -8,9 +8,11 @@ const Search = ({
   addToTeam,
   checkExistence,
   checkAlignment,
+  setCurrentPage,
 }) => {
   // Check if token from login exist. If not, redirect.
   useToken();
+  setCurrentPage("Search");
 
   return (
     <>
