@@ -6,6 +6,9 @@ import Home from "./components/Home";
 import Search from "./components/Search";
 
 const App = () => {
+  // State for current page name
+  const [currentPage, setCurrentPage] = useState("Home");
+
   // State and Effect for the token -- POST request
   const [response, setResponse] = useState({ token: "", error: "" });
   useEffect(() => {
@@ -49,10 +52,18 @@ const App = () => {
 
   return (
     <>
-      <Header token={response.token} setResponse={setResponse} />
+      <Header
+        token={response.token}
+        setResponse={setResponse}
+        currentPage={currentPage}
+      />
       <Switch>
         <Route path="/home">
-          <Home team={team} removeFromTeam={removeFromTeam} />
+          <Home
+            team={team}
+            removeFromTeam={removeFromTeam}
+            setCurrentPage={setCurrentPage}
+          />
         </Route>
         <Route path="/search">
           <Search
@@ -61,13 +72,18 @@ const App = () => {
             addToTeam={addToTeam}
             checkExistence={checkExistence}
             checkAlignment={checkAlignment}
+            setCurrentPage={setCurrentPage}
           />
         </Route>
         <Route path="/login">
-          <Login setResponse={setResponse} />
+          <Login setResponse={setResponse} setCurrentPage={setCurrentPage} />
         </Route>
         <Route path="/" exact>
-          <Home />
+          <Home
+            team={team}
+            removeFromTeam={removeFromTeam}
+            setCurrentPage={setCurrentPage}
+          />
         </Route>
         <Route path="*">
           {
