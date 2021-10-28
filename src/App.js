@@ -51,7 +51,7 @@ const App = () => {
   const [results, setResults] = useState(null);
 
   return (
-    <div className="vh-100" style={{ backgroundColor: "#563091" }}>
+    <div style={{ backgroundColor: "#911322" }}>
       <Header
         token={response.token}
         setResponse={setResponse}
@@ -90,7 +90,7 @@ const App = () => {
             // PAGE 404
           }
         </Route>
-      </Switch>{" "}
+      </Switch>
     </div>
   );
 };
