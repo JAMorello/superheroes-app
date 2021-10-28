@@ -63,7 +63,8 @@ const LoginForm = ({ setResponse }) => {
           <button
             type="submit"
             disabled={isDisabled}
-            className="btn btn-primary"
+            className="btn text-white fw-bold"
+              style={{ backgroundColor: "#563091" }}
           >
             Send
           </button>
