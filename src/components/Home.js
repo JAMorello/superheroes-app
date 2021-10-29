@@ -18,9 +18,10 @@ const Home = ({ team, removeFromTeam, setCurrentPage }) => {
           team={team}
           removeFromTeam={removeFromTeam}
           setShowDetails={setShowDetails}
+          modalID="heroDetailModal"
         />
       )}
-      {showDetails && <HeroDetail hero={showDetails} />}
+      {showDetails && <HeroDetail hero={showDetails} id="heroDetailModal" />}
     </>
   );
 };

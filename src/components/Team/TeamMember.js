@@ -13,7 +13,7 @@ ISSUES:
 - Not all heroes cards result in the same height
 */
 
-const TeamMember = ({ hero, removeFromTeam, setShowDetails }) => {
+const TeamMember = ({ hero, removeFromTeam, setShowDetails, modalID }) => {
   const getIcon = (stat) => {
     switch (stat.toLowerCase()) {
       case "intelligence":
@@ -63,9 +63,11 @@ const TeamMember = ({ hero, removeFromTeam, setShowDetails }) => {
               <h5 className="card-title">{hero.name}</h5>
               <div className="d-flex d-sm-grid mt-4 justify-content-evenly ">
                 <button
-                  className="btn text-white fw-bold"
+                  className="btn text-white fw-bold "
                   style={{ backgroundColor: "#7DDE33" }}
                   onClick={() => setShowDetails(hero)}
+                  data-bs-toggle="modal"
+                  data-bs-target={`#${modalID}`}
                 >
                   Details
                 </button>
