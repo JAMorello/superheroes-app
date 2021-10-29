@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import { BiBrain, BiWind } from "react-icons/bi";
+import { IoBarbellOutline } from "react-icons/io5";
+import { GiBrokenBone, GiMagicPalm, GiPunchBlast } from "react-icons/gi";
 
 const TeamStats = ({ team }) => {
   let initialStats = {
@@ -58,22 +61,74 @@ const TeamStats = ({ team }) => {
     setHeight(reduceMeasure(team, "height"));
   }, [team]);
 
+  const getIcon = (stat) => {
+    switch (stat) {
+      case "Intelligence":
+        return <BiBrain />;
+      case "Strength":
+        return <IoBarbellOutline />;
+      case "Speed":
+        return <BiWind />;
+      case "Durability":
+        return <GiBrokenBone />;
+      case "Power":
+        return <GiMagicPalm />;
+      case "Combat":
+        return <GiPunchBlast />;
+      default:
+        return "";
+    }
+  };
+
+  const getStats = (stats, slice = [0, 3]) => {
+    return Object.entries(stats)
+      .slice(slice[0], slice[1])
+      .map((e) => (
+        <li class="list-group-item">
+          {getIcon(e[0])} {e[0]}: {e[1]}
+        </li>
+      ));
+  };
+
   return (
-    <div>
-      <div>
-        <h3>Team Specialty</h3>
-        {team && <h3>{teamSpeciality}</h3>}
-      </div>
-      <ul>
-        {Object.entries(stats).map((e) => (
-          <li key={e[0]}>
-            {e[0]}: {e[1]}
-          </li>
-        ))}
-      </ul>
-      <div>
-        <p>Overall weight: {weight} kg</p>
-        <p>Overall height: {height} cm</p>
+    <div className="container my-4">
+      <div className="justify-content-center">
+        <div className="row">
+          <div className="col text-center ">
+            {/* // CARD GROUP */}
+            <div class="card-group ">
+              {/* // TEAM SPECIALITY AND OVERALLS CARD */}
+              <div class="card text-dark bg-light">
+                <div class="card-body">
+                  <h5 class="card-header">Team Specialty</h5>
+                  <ul class="list-group list-group-flush">
+                    {team && <li class="list-group-item">{teamSpeciality}</li>}
+                  </ul>
+                  <h5 class="card-header">Overalls</h5>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Weight: {weight} kg</li>
+                    <li class="list-group-item">Height: {height} cm</li>
+                    <li class="list-group-item"></li>
+                  </ul>
+                </div>
+              </div>
+              {/* // POWERSTATS CARD */}
+              <div class="card text-dark bg-light">
+                <div class="card-body">
+                  <h5 class="card-header">Team Powerstats</h5>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      <div className="row g-2">
+                        <div className="col">{getStats(stats)}</div>
+                        <div className="col">{getStats(stats, [3, 6])}</div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
