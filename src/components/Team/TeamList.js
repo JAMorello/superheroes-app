@@ -1,6 +1,6 @@
 import TeamMember from "./TeamMember";
 
-const TeamList = ({ team, removeFromTeam, setShowDetails, modalID }) => {
+const TeamList = ({ team, removeFromTeam, setShowDetails }) => {
   return (
     <div className="container my-2">
       <div className="row justify-content-center g-4">
@@ -10,7 +10,6 @@ const TeamList = ({ team, removeFromTeam, setShowDetails, modalID }) => {
             hero={e}
             removeFromTeam={removeFromTeam}
             setShowDetails={setShowDetails}
-            modalID={modalID}
           />
         ))}
       </div>

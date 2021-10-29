@@ -1,8 +1,8 @@
-const HeroDetail = ({ hero, id }) => {
+const HeroDetail = ({ hero }) => {
   return (
     <div
       className="modal fade"
-      id={id}
+      id="heroDetailModal"
       tabindex="-1"
       aria-labelledby="heroDetailModal"
       aria-hidden="true"
