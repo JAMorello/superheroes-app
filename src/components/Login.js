@@ -2,6 +2,11 @@ import LoginForm from "./Login/LoginForm";
 import Logo from "../images/Logo.png";
 import superheroes from "../images/superheroes.jpg";
 
+/*
+TODO:
+- Alerts when there is an error while login
+*/
+
 const Login = ({ setResponse, setCurrentPage }) => {
   setCurrentPage("Login");
 

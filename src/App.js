@@ -5,6 +5,12 @@ import Login from "./components/Login";
 import Home from "./components/Home";
 import Search from "./components/Search";
 
+/*
+ISSUES
+- Bottom of app is always white except when in Search page 
+    and with more than 4 hero cards
+*/
+
 const App = () => {
   // State for current page name
   const [currentPage, setCurrentPage] = useState("Home");
@@ -73,6 +79,7 @@ const App = () => {
             checkExistence={checkExistence}
             checkAlignment={checkAlignment}
             setCurrentPage={setCurrentPage}
+            memberQuantity={team.length}
           />
         </Route>
         <Route path="/login">

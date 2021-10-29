@@ -2,6 +2,11 @@ import { Link, useHistory } from "react-router-dom";
 import Logo from "../images/Logo.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 
+/*
+ISSUE
+- While in mobile, the menu button can't collapse once clicked and extended
+*/
+
 const Header = ({ token, setResponse, currentPage }) => {
   const history = useHistory(); // To redirect
 
