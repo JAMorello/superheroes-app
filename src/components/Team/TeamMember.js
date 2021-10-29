@@ -1,22 +1,14 @@
 import HeroImg from "../Hero/HeroImg";
 import DetailButton from "./DetailButton";
 import RemoveButton from "./RemoveButton";
-import { getIcon, getAllegianceIcon } from "../utilities/icons.js";
+import { getAllegianceIcon } from "../utilities/icons.js";
+import { getStats } from "../utilities/stats.js";
 /*
 ISSUES:
 - Not all heroes cards result in the same height
-- In every hero card, DetailsButton always throw error at the first click. After that, works fine. There is a problem with Bootstrap.
 */
 
 const TeamMember = ({ hero, removeFromTeam, setShowDetails }) => {
-  const getStats = (stats) => {
-    return Object.entries(stats).map((e) => (
-      <li class="list-group-item">
-        {getIcon(e[0])} {e[0].charAt(0).toUpperCase() + e[0].slice(1)}: {e[1]}
-      </li>
-    ));
-  };
-
   return (
     <div className="col-12 col-sm-6 col-lg-4">
       <div
@@ -40,7 +32,7 @@ const TeamMember = ({ hero, removeFromTeam, setShowDetails }) => {
             <div className="card-body">
               <h5 class="card-header text-center">Powerstats</h5>
               <ul class="list-group list-group-flush">
-                {getStats(hero.powerstats)}
+                {getStats(hero.powerstats, [0, hero.powerstats.length])}
               </ul>
             </div>
           </div>

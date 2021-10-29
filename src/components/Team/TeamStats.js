@@ -1,16 +1,7 @@
 import { useState, useEffect } from "react";
-import { getIcon } from "../utilities/icons.js";
+import { getStats, initialStats } from "../utilities/stats.js";
 
 const TeamStats = ({ team }) => {
-  let initialStats = {
-    Intelligence: 0,
-    Strength: 0,
-    Speed: 0,
-    Durability: 0,
-    Power: 0,
-    Combat: 0,
-  };
-
   const [stats, setStats] = useState(initialStats);
   const [teamSpeciality, setTeamSpeciality] = useState(Object.keys(stats)[0]);
   const [weight, setWeight] = useState(0);
@@ -62,16 +53,6 @@ const TeamStats = ({ team }) => {
     setWeight(Math.round(reduceMeasure(team, "weight")));
     setHeight(Math.round(reduceMeasure(team, "height")));
   }, [team]);
-
-  const getStats = (stats, slice = [0, 3]) => {
-    return Object.entries(stats)
-      .slice(slice[0], slice[1])
-      .map((e) => (
-        <li class="list-group-item">
-          {getIcon(e[0])} {e[0]}: {e[1]}
-        </li>
-      ));
-  };
 
   return (
     <div className="container my-4">
