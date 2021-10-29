@@ -1,5 +1,6 @@
 import HeroImg from "../Hero/HeroImg";
 import HeroTitle from "../Hero/HeroTitle";
+import AddButton from "./AddButton";
 
 const HeroItem = ({
   hero,
@@ -20,26 +21,13 @@ const HeroItem = ({
           <div className="card-body">
             <HeroTitle hero={hero} />
           </div>
-          <div className="d-grid">
-            <button
-              className="btn text-white fw-bold"
-              style={{
-                backgroundColor: `#${
-                  checkExistence(hero) ? "7DDE33" : "563091"
-                }`,
-              }}
-              disabled={checkExistence(hero) || checkAlignment(hero)}
-              onClick={() => addToTeam(hero)}
-            >
-              {memberQuantity === 6
-                ? "Team Filled"
-                : checkExistence(hero)
-                ? "On Team"
-                : checkAlignment(hero)
-                ? "Axis filled"
-                : "Add"}
-            </button>
-          </div>
+          <AddButton
+            hero={hero}
+            checkExistence={checkExistence}
+            checkAlignment={checkAlignment}
+            memberQuantity={memberQuantity}
+            addToTeam={addToTeam}
+          />
         </div>
       </div>
     </div>
