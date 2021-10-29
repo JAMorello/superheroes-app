@@ -1,7 +1,7 @@
 import HeroImg from "../Hero/HeroImg";
+import HeroTitle from "../Hero/HeroTitle";
 import DetailButton from "./DetailButton";
 import RemoveButton from "./RemoveButton";
-import { getAllegianceIcon } from "../utilities/icons.js";
 import { getStats } from "../utilities/stats.js";
 /*
 ISSUES:
@@ -19,8 +19,7 @@ const TeamMember = ({ hero, removeFromTeam, setShowDetails }) => {
           <div className="col-md-4 text-center">
             <HeroImg hero={hero} origin="Home" />
             <div className="card-body">
-              {getAllegianceIcon(hero)}
-              <h5 className="card-title">{hero.name}</h5>
+              <HeroTitle hero={hero} />
               <div className="d-flex d-sm-grid mt-4 justify-content-evenly ">
                 <DetailButton hero={hero} setShowDetails={setShowDetails} />
                 <RemoveButton hero={hero} removeFromTeam={removeFromTeam} />

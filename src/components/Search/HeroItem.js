@@ -1,5 +1,5 @@
 import HeroImg from "../Hero/HeroImg";
-import { getAllegianceIcon } from "../utilities/icons.js";
+import HeroTitle from "../Hero/HeroTitle";
 
 const HeroItem = ({
   hero,
@@ -18,8 +18,7 @@ const HeroItem = ({
         <div className="card-img-top">
           <HeroImg hero={hero} origin="Search" />
           <div className="card-body">
-            {getAllegianceIcon(hero)}
-            <h5 className="card-title">{hero.name}</h5>
+            <HeroTitle hero={hero} />
           </div>
           <div className="d-grid">
             <button
