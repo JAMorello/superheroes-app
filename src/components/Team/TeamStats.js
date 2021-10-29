@@ -22,7 +22,11 @@ const TeamStats = ({ team }) => {
   useEffect(() => {
     const reduceStat = (heroTeam, stat) => {
       return heroTeam.reduce(
-        (sum, sumHero) => sum + parseInt(sumHero.powerstats[stat]),
+        (sum, sumHero) =>
+          sum +
+          parseInt(
+            sumHero.powerstats[stat] !== "null" ? sumHero.powerstats[stat] : 0
+          ),
         0
       );
     };
@@ -57,8 +61,8 @@ const TeamStats = ({ team }) => {
       return isNaN(number) ? 0 : number;
     };
 
-    setWeight(reduceMeasure(team, "weight"));
-    setHeight(reduceMeasure(team, "height"));
+    setWeight(Math.round(reduceMeasure(team, "weight")));
+    setHeight(Math.round(reduceMeasure(team, "height")));
   }, [team]);
 
   const getIcon = (stat) => {
@@ -119,8 +123,14 @@ const TeamStats = ({ team }) => {
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item">
                       <div className="row g-2">
-                        <div className="col">{getStats(stats)}</div>
-                        <div className="col">{getStats(stats, [3, 6])}</div>
+                        <div className="col">
+                          <h5 class="card-header">Primary</h5>
+                          {getStats(stats)}
+                        </div>
+                        <div className="col">
+                          <h5 class="card-header">Secondary</h5>
+                          {getStats(stats, [3, 6])}
+                        </div>
                       </div>
                     </li>
                   </ul>
