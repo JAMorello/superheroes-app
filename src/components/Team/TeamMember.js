@@ -1,38 +1,10 @@
-import { BiBrain, BiWind } from "react-icons/bi";
-import { IoBarbellOutline } from "react-icons/io5";
-import {
-  GiAngelWings,
-  GiDevilMask,
-  GiBrokenBone,
-  GiMagicPalm,
-  GiPunchBlast,
-} from "react-icons/gi";
-
+import { getIcon, getAllegianceIcon } from "../utilities/icons.js";
 /*
 ISSUES:
 - Not all heroes cards result in the same height
 */
 
 const TeamMember = ({ hero, removeFromTeam, setShowDetails, modalID }) => {
-  const getIcon = (stat) => {
-    switch (stat.toLowerCase()) {
-      case "intelligence":
-        return <BiBrain />;
-      case "strength":
-        return <IoBarbellOutline />;
-      case "speed":
-        return <BiWind />;
-      case "durability":
-        return <GiBrokenBone />;
-      case "power":
-        return <GiMagicPalm />;
-      case "combat":
-        return <GiPunchBlast />;
-      default:
-        return "";
-    }
-  };
-
   const getStats = (stats) => {
     return Object.entries(stats).map((e) => (
       <li class="list-group-item">
@@ -55,11 +27,7 @@ const TeamMember = ({ hero, removeFromTeam, setShowDetails, modalID }) => {
               className="img-fluid rounded-start border border-dark"
             ></img>
             <div className="card-body">
-              {hero.biography.alignment === "good" ? (
-                <GiAngelWings color="blue" size="2em" />
-              ) : (
-                <GiDevilMask color="red" size="2em" />
-              )}
+              {getAllegianceIcon(hero)}
               <h5 className="card-title">{hero.name}</h5>
               <div className="d-flex d-sm-grid mt-4 justify-content-evenly ">
                 <button

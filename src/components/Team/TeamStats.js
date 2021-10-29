@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
-import { BiBrain, BiWind } from "react-icons/bi";
-import { IoBarbellOutline } from "react-icons/io5";
-import { GiBrokenBone, GiMagicPalm, GiPunchBlast } from "react-icons/gi";
+import { getIcon } from "../utilities/icons.js";
 
 const TeamStats = ({ team }) => {
   let initialStats = {
@@ -64,25 +62,6 @@ const TeamStats = ({ team }) => {
     setWeight(Math.round(reduceMeasure(team, "weight")));
     setHeight(Math.round(reduceMeasure(team, "height")));
   }, [team]);
-
-  const getIcon = (stat) => {
-    switch (stat) {
-      case "Intelligence":
-        return <BiBrain />;
-      case "Strength":
-        return <IoBarbellOutline />;
-      case "Speed":
-        return <BiWind />;
-      case "Durability":
-        return <GiBrokenBone />;
-      case "Power":
-        return <GiMagicPalm />;
-      case "Combat":
-        return <GiPunchBlast />;
-      default:
-        return "";
-    }
-  };
 
   const getStats = (stats, slice = [0, 3]) => {
     return Object.entries(stats)

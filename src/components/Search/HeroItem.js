@@ -1,4 +1,4 @@
-import { GiAngelWings, GiDevilMask } from "react-icons/gi";
+import { getAllegianceIcon } from "../utilities/icons.js";
 
 const HeroItem = ({
   hero,
@@ -24,11 +24,7 @@ const HeroItem = ({
             object-fit="cover"
           ></img>
           <div className="card-body">
-            {hero.biography.alignment === "good" ? (
-              <GiAngelWings color="blue" size="2em" />
-            ) : (
-              <GiDevilMask color="red" size="2em" />
-            )}
+            {getAllegianceIcon(hero)}
             <h5 className="card-title">{hero.name}</h5>
           </div>
           <div className="d-grid">
