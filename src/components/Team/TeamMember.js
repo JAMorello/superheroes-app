@@ -1,21 +1,96 @@
+import { BiBrain, BiWind } from "react-icons/bi";
+import { IoBarbellOutline } from "react-icons/io5";
+import {
+  GiAngelWings,
+  GiDevilMask,
+  GiBrokenBone,
+  GiMagicPalm,
+  GiPunchBlast,
+} from "react-icons/gi";
+
+/*
+ISSUES:
+- Not all heroes cards result in the same height
+*/
+
 const TeamMember = ({ hero, removeFromTeam, setShowDetails }) => {
+  const getIcon = (stat) => {
+    switch (stat.toLowerCase()) {
+      case "intelligence":
+        return <BiBrain />;
+      case "strength":
+        return <IoBarbellOutline />;
+      case "speed":
+        return <BiWind />;
+      case "durability":
+        return <GiBrokenBone />;
+      case "power":
+        return <GiMagicPalm />;
+      case "combat":
+        return <GiPunchBlast />;
+      default:
+        return "";
+    }
+  };
+
+  const getStats = (stats) => {
+    return Object.entries(stats).map((e) => (
+      <li class="list-group-item">
+        {getIcon(e[0])} {e[0].charAt(0).toUpperCase() + e[0].slice(1)}: {e[1]}
+      </li>
+    ));
+  };
+
   return (
-    <li>
-      <p>{hero.name}</p>
-      <p>{hero.image.url}</p>
-      <div>
-        <p>Intelligence: {hero.powerstats.intelligence}</p>
-        <p>Strength: {hero.powerstats.strength}</p>
-        <p>Speed: {hero.powerstats.speed}</p>
-        <p>Durability: {hero.powerstats.durability}</p>
-        <p>Power: {hero.powerstats.power}</p>
-        <p>Combat: {hero.powerstats.combat}</p>
+    <div className="col-12 col-sm-6 col-lg-4">
+      <div
+        className="card border-dark shadow p-2"
+        style={{ "max-width": "340px" }}
+      >
+        <div class="row g-0">
+          <div className="col-md-4 text-center">
+            <img
+              src={hero.image.url}
+              alt={hero.name}
+              className="img-fluid rounded-start border border-dark"
+            ></img>
+            <div className="card-body">
+              {hero.biography.alignment === "good" ? (
+                <GiAngelWings color="blue" size="2em" />
+              ) : (
+                <GiDevilMask color="red" size="2em" />
+              )}
+              <h5 className="card-title">{hero.name}</h5>
+              <div className="d-flex d-sm-grid mt-4 justify-content-evenly ">
+                <button
+                  className="btn text-white fw-bold"
+                  style={{ backgroundColor: "#7DDE33" }}
+                  onClick={() => setShowDetails(hero)}
+                >
+                  Details
+                </button>
+                <button
+                  className="btn text-white fw-bold mt-sm-2"
+                  style={{ backgroundColor: "#563091" }}
+                  onClick={() => removeFromTeam(hero)}
+                >
+                  Remove
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-8">
+            <div className="card-body">
+              <h5 class="card-header text-center">Powerstats</h5>
+              <ul class="list-group list-group-flush">
+                {getStats(hero.powerstats)}
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-      <div>
-        <button onClick={() => setShowDetails(hero)}>Details</button>
-        <button onClick={() => removeFromTeam(hero)}>Remove</button>
-      </div>
-    </li>
+    </div>
   );
 };
 
