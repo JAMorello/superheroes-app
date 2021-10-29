@@ -1,11 +1,14 @@
 import HeroImg from "../Hero/HeroImg";
+import DetailButton from "./DetailButton";
+import RemoveButton from "./RemoveButton";
 import { getIcon, getAllegianceIcon } from "../utilities/icons.js";
 /*
 ISSUES:
 - Not all heroes cards result in the same height
+- In every hero card, DetailsButton always throw error at the first click. After that, works fine. There is a problem with Bootstrap.
 */
 
-const TeamMember = ({ hero, removeFromTeam, setShowDetails, modalID }) => {
+const TeamMember = ({ hero, removeFromTeam, setShowDetails }) => {
   const getStats = (stats) => {
     return Object.entries(stats).map((e) => (
       <li class="list-group-item">
@@ -27,22 +30,8 @@ const TeamMember = ({ hero, removeFromTeam, setShowDetails, modalID }) => {
               {getAllegianceIcon(hero)}
               <h5 className="card-title">{hero.name}</h5>
               <div className="d-flex d-sm-grid mt-4 justify-content-evenly ">
-                <button
-                  className="btn text-white fw-bold "
-                  style={{ backgroundColor: "#7DDE33" }}
-                  onClick={() => setShowDetails(hero)}
-                  data-bs-toggle="modal"
-                  data-bs-target={`#${modalID}`}
-                >
-                  Details
-                </button>
-                <button
-                  className="btn text-white fw-bold mt-sm-2"
-                  style={{ backgroundColor: "#563091" }}
-                  onClick={() => removeFromTeam(hero)}
-                >
-                  Remove
-                </button>
+                <DetailButton hero={hero} setShowDetails={setShowDetails} />
+                <RemoveButton hero={hero} removeFromTeam={removeFromTeam} />
               </div>
             </div>
           </div>
