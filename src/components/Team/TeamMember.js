@@ -1,3 +1,4 @@
+import HeroImg from "../Hero/HeroImg";
 import { getIcon, getAllegianceIcon } from "../utilities/icons.js";
 /*
 ISSUES:
@@ -21,11 +22,7 @@ const TeamMember = ({ hero, removeFromTeam, setShowDetails, modalID }) => {
       >
         <div class="row g-0">
           <div className="col-md-4 text-center">
-            <img
-              src={hero.image.url}
-              alt={hero.name}
-              className="img-fluid rounded-start border border-dark"
-            ></img>
+            <HeroImg hero={hero} origin="Home" />
             <div className="card-body">
               {getAllegianceIcon(hero)}
               <h5 className="card-title">{hero.name}</h5>

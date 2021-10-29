@@ -1,3 +1,4 @@
+import HeroImg from "../Hero/HeroImg";
 import { getAllegianceIcon } from "../utilities/icons.js";
 
 const HeroItem = ({
@@ -15,14 +16,7 @@ const HeroItem = ({
         style={{ width: "15rem" }}
       >
         <div className="card-img-top">
-          <img
-            src={hero.image.url}
-            alt={hero.name}
-            className="rounded border border-dark"
-            height="250rem"
-            width="100%"
-            object-fit="cover"
-          ></img>
+          <HeroImg hero={hero} origin="Search" />
           <div className="card-body">
             {getAllegianceIcon(hero)}
             <h5 className="card-title">{hero.name}</h5>
