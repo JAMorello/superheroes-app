@@ -5,6 +5,7 @@ const HeroResults = ({
   addToTeam,
   checkExistence,
   checkAlignment,
+  memberQuantity,
 }) => {
   return (
     <div className="container my-2">
@@ -17,6 +18,7 @@ const HeroResults = ({
             checkExistence={checkExistence}
             checkAlignment={checkAlignment}
             moreThanThree={results.length > 3}
+            memberQuantity={memberQuantity}
           />
         ))}
       </div>

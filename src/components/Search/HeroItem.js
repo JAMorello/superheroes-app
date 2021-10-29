@@ -6,6 +6,7 @@ const HeroItem = ({
   checkExistence,
   checkAlignment,
   moreThanThree,
+  memberQuantity,
 }) => {
   return (
     <div className={`col col-sm-6 col-md-4 ${moreThanThree ? "col-lg-3" : ""}`}>
@@ -33,11 +34,21 @@ const HeroItem = ({
           <div className="d-grid">
             <button
               className="btn text-white fw-bold"
-              style={{ backgroundColor: "#563091" }}
+              style={{
+                backgroundColor: `#${
+                  checkExistence(hero) ? "7DDE33" : "563091"
+                }`,
+              }}
               disabled={checkExistence(hero) || checkAlignment(hero)}
               onClick={() => addToTeam(hero)}
             >
-              {checkExistence(hero) || checkAlignment(hero) ? "On Team" : "Add"}
+              {memberQuantity === 6
+                ? "Team Filled"
+                : checkExistence(hero)
+                ? "On Team"
+                : checkAlignment(hero)
+                ? "Axis filled"
+                : "Add"}
             </button>
           </div>
         </div>

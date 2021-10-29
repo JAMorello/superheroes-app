@@ -9,6 +9,7 @@ const Search = ({
   checkExistence,
   checkAlignment,
   setCurrentPage,
+  memberQuantity,
 }) => {
   // Check if token from login exist. If not, redirect.
   useToken();
@@ -23,6 +24,7 @@ const Search = ({
           addToTeam={addToTeam}
           checkExistence={checkExistence}
           checkAlignment={checkAlignment}
+          memberQuantity={memberQuantity}
         />
       )}
     </>
