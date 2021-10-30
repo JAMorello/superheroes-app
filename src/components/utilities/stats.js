@@ -1,5 +1,3 @@
-import { getIcon } from "./icons.js";
-
 let initialStats = {
   Intelligence: 0,
   Strength: 0,
@@ -29,14 +27,4 @@ const dummyStats = {
   },
 };
 
-const getStats = (stats, slice = [0, 3]) => {
-  return Object.entries(stats)
-    .slice(slice[0], slice[1])
-    .map((e) => (
-      <li class="list-group-item">
-        {getIcon(e[0])} {e[0].charAt(0).toUpperCase() + e[0].slice(1)}: {e[1]}
-      </li>
-    ));
-};
-
-export { getStats, initialStats, dummyStats };
+export { initialStats, dummyStats };
