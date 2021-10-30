@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import Header from "./components/Header";
 import Login from "./components/Login";
 import Home from "./components/Home";
 import Search from "./components/Search";
+import ToastError from "./components/Alerts/ToastError";
 
 /*
 ISSUES
@@ -15,10 +16,15 @@ const App = () => {
   // State for current page name
   const [currentPage, setCurrentPage] = useState("Home");
 
+  let history = useHistory(); // To redirect
+
   // State and Effect for the token -- POST request
   const [response, setResponse] = useState({ token: "", error: "" });
   useEffect(() => {
+    console.log(response);
     localStorage.setItem("token", response.token);
+    if (response.token !== "") history.push("/home");
+    // eslint-disable-next-line
   }, [response]);
 
   // State for the team
@@ -98,6 +104,7 @@ const App = () => {
           }
         </Route>
       </Switch>
+      {response.error !== "" && <ToastError error={response.error} />}
     </div>
   );
 };
