@@ -5,11 +5,11 @@ import Login from "./components/Login";
 import Home from "./components/Home";
 import Search from "./components/Search";
 import ToastError from "./components/Alerts/ToastError";
+import PageNotFound from "./components/Pages/PageNotFound";
 
 /*
 ISSUES
-- Bottom of app is always white except when in Search page 
-    and with more than 4 hero cards
+- Bottom of app is always white except when in Search page with more than 4 hero cards
 */
 
 const App = () => {
@@ -21,7 +21,6 @@ const App = () => {
   // State and Effect for the token -- POST request
   const [response, setResponse] = useState({ token: "", error: "" });
   useEffect(() => {
-    console.log(response);
     localStorage.setItem("token", response.token);
     if (response.token !== "") history.push("/home");
     // eslint-disable-next-line
@@ -99,12 +98,10 @@ const App = () => {
           />
         </Route>
         <Route path="*">
-          {
-            // PAGE 404
-          }
+          <PageNotFound />
         </Route>
       </Switch>
-      {response.error !== "" && <ToastError error={response.error} />}
+      <ToastError response={response} />
     </div>
   );
 };

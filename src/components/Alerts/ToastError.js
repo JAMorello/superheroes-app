@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { BiError } from "react-icons/bi";
 import { Toast } from "bootstrap/dist/js/bootstrap.min.js";
 
-const ToastError = ({ error }) => {
+const ToastError = ({ response }) => {
   var [toast, setToast] = useState(false);
   const toastRef = useRef();
 
@@ -22,7 +22,7 @@ const ToastError = ({ error }) => {
       toast ? bsToast.show() : bsToast.hide();
     }
     // eslint-disable-next-line
-  }, []);
+  }, [response]);
 
   return (
     <div className="position-fixed bottom-0 end-0 p-3" style={{ zIndex: 11 }}>
@@ -33,17 +33,21 @@ const ToastError = ({ error }) => {
         aria-live="assertive"
         aria-atomic="true"
       >
-        <div className="toast-header ">
-          <BiError />
-          <strong className="me-auto fw-bolder">Error</strong>
-          <button
-            type="button"
-            className="btn-close"
-            data-bs-dismiss="toast"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div className="toast-body">{error}</div>
+        {response.error !== "" && (
+          <>
+            <div className="toast-header ">
+              <BiError />
+              <strong className="me-auto fw-bolder">Error</strong>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="toast"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="toast-body">{response.error}</div>
+          </>
+        )}
       </div>
     </div>
   );
