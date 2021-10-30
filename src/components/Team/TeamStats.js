@@ -61,36 +61,42 @@ const TeamStats = ({ team }) => {
         <div className="row">
           <div className="col text-center ">
             {/* // CARD GROUP */}
-            <div class="card-group ">
+            <div className="card-group ">
               {/* // TEAM SPECIALITY AND OVERALLS CARD */}
-              <div class="card text-dark bg-light">
-                <div class="card-body">
-                  <h5 class="card-header">Team Specialty</h5>
-                  <ul class="list-group list-group-flush">
-                    {team && <li class="list-group-item">{teamSpeciality}</li>}
+              <div className="card text-dark bg-light">
+                <div className="card-body">
+                  <h5 className="card-header">Team Specialty</h5>
+                  <ul className="list-group list-group-flush">
+                    {team && (
+                      <li className="list-group-item">{teamSpeciality}</li>
+                    )}
                   </ul>
-                  <h5 class="card-header">Overalls</h5>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Weight: {weight} kg</li>
-                    <li class="list-group-item">Height: {height} cm</li>
-                    <li class="list-group-item"></li>
+                  <h5 className="card-header">Overalls</h5>
+                  <ul className="list-group list-group-flush">
+                    <li className="list-group-item">Weight: {weight} kg</li>
+                    <li className="list-group-item">Height: {height} cm</li>
+                    <li className="list-group-item"></li>
                   </ul>
                 </div>
               </div>
               {/* // POWERSTATS CARD */}
-              <div class="card text-dark bg-light">
-                <div class="card-body">
-                  <h5 class="card-header">Team Powerstats</h5>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
+              <div className="card text-dark bg-light">
+                <div className="card-body">
+                  <h5 className="card-header">Team Powerstats</h5>
+                  <ul className="list-group list-group-flush">
+                    <li className="list-group-item">
                       <div className="row g-2">
                         <div className="col">
-                          <h5 class="card-header">Primary</h5>
-                          <HeroStats stats={stats} />
+                          <h5 className="card-header">Primary</h5>
+                          <ul className="list-group list-group-flush">
+                            <HeroStats stats={stats} />
+                          </ul>
                         </div>
                         <div className="col">
-                          <h5 class="card-header">Secondary</h5>
-                          <HeroStats stats={stats} slice={[3, 6]} />
+                          <h5 className="card-header">Secondary</h5>
+                          <ul className="list-group list-group-flush">
+                            <HeroStats stats={stats} slice={[3, 6]} />
+                          </ul>
                         </div>
                       </div>
                     </li>

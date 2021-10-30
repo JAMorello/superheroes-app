@@ -13,9 +13,9 @@ const TeamMember = ({ hero, removeFromTeam, setShowDetails }) => {
     <div className="col-12 col-sm-6 col-lg-4">
       <div
         className="card border-dark shadow p-2"
-        style={{ "max-width": "340px" }}
+        style={{ maxWidth: "340px" }}
       >
-        <div class="row g-0">
+        <div className="row g-0">
           <div className="col-md-4 text-center">
             <HeroImg hero={hero} origin="Home" />
             <div className="card-body">
@@ -27,10 +27,10 @@ const TeamMember = ({ hero, removeFromTeam, setShowDetails }) => {
             </div>
           </div>
 
-          <div class="col-sm-8">
+          <div className="col-sm-8">
             <div className="card-body">
-              <h5 class="card-header text-center">Powerstats</h5>
-              <ul class="list-group list-group-flush">
+              <h5 className="card-header text-center">Powerstats</h5>
+              <ul className="list-group list-group-flush">
                 <HeroStats
                   stats={hero.powerstats}
                   slice={[0, hero.powerstats.length]}

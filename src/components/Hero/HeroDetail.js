@@ -3,7 +3,7 @@ const HeroDetail = ({ hero }) => {
     <div
       className="modal fade"
       id="heroDetailModal"
-      tabindex="-1"
+      tabIndex="-1"
       aria-labelledby="heroDetailModal"
       aria-hidden="true"
     >
@@ -21,7 +21,7 @@ const HeroDetail = ({ hero }) => {
             ></button>
           </div>
           <div className="modal-body">
-            <table class="table table-striped table-bordered">
+            <table className="table table-striped table-bordered">
               <tbody>
                 <tr>
                   <th scope="row">Full Name</th>
