@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { getStats, initialStats } from "../utilities/stats.js";
+import { initialStats } from "../utilities/stats.js";
+import HeroStats from "../Hero/HeroStats";
 
 const TeamStats = ({ team }) => {
   const [stats, setStats] = useState(initialStats);
@@ -85,11 +86,11 @@ const TeamStats = ({ team }) => {
                       <div className="row g-2">
                         <div className="col">
                           <h5 class="card-header">Primary</h5>
-                          {getStats(stats)}
+                          <HeroStats stats={stats} />
                         </div>
                         <div className="col">
                           <h5 class="card-header">Secondary</h5>
-                          {getStats(stats, [3, 6])}
+                          <HeroStats stats={stats} slice={[3, 6]} />
                         </div>
                       </div>
                     </li>

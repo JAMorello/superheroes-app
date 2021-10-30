@@ -1,6 +1,6 @@
 import LoginForm from "./Login/LoginForm";
 import LoginImg from "./Login/LoginImg";
-import Logo from "./utilities/Logo";
+import Logo from "./Icons/Logo";
 /*
 TODO:
 - Alerts when there is an error while login

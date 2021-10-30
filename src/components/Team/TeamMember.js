@@ -2,7 +2,7 @@ import HeroImg from "../Hero/HeroImg";
 import HeroTitle from "../Hero/HeroTitle";
 import DetailButton from "./DetailButton";
 import RemoveButton from "./RemoveButton";
-import { getStats } from "../utilities/stats.js";
+import HeroStats from "../Hero/HeroStats";
 /*
 ISSUES:
 - Not all heroes cards result in the same height
@@ -31,7 +31,10 @@ const TeamMember = ({ hero, removeFromTeam, setShowDetails }) => {
             <div className="card-body">
               <h5 class="card-header text-center">Powerstats</h5>
               <ul class="list-group list-group-flush">
-                {getStats(hero.powerstats, [0, hero.powerstats.length])}
+                <HeroStats
+                  stats={hero.powerstats}
+                  slice={[0, hero.powerstats.length]}
+                />
               </ul>
             </div>
           </div>
