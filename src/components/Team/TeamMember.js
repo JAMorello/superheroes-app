@@ -1,8 +1,8 @@
 import HeroImg from "../Hero/HeroImg";
 import HeroTitle from "../Hero/HeroTitle";
+import HeroStats from "../Hero/HeroStats";
 import DetailButton from "./DetailButton";
 import RemoveButton from "./RemoveButton";
-import HeroStats from "../Hero/HeroStats";
 /*
 ISSUES:
 - Not all heroes cards result in the same height
