@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Switch, Route, useHistory } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Header from "./components/Pages/Header";
 import Login from "./components/Pages/Login";
 import Home from "./components/Pages/Home";
@@ -16,8 +16,6 @@ const App = () => {
   // State for current page name
   const [currentPage, setCurrentPage] = useState("Home");
 
-  let history = useHistory(); // To redirect
-
   // State and Effect for the token -- POST request
   const [response, setResponse] = useState(() => {
     // getting stored value
@@ -30,7 +28,6 @@ const App = () => {
 
   useEffect(() => {
     localStorage.setItem("token", response.token);
-    // if (response.token !== "") history.push("/home");
     // eslint-disable-next-line
   }, [response]);
 
