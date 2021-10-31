@@ -1,6 +1,7 @@
 {
   "name": "superheroes-app",
   "version": "0.1.0",
+  "homepage": "https://tender-kowalevski-00ba7f.netlify.app",
   "private": true,
   "dependencies": {
     "@popperjs/core": "^2.10.2",
