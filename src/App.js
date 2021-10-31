@@ -19,15 +19,30 @@ const App = () => {
   let history = useHistory(); // To redirect
 
   // State and Effect for the token -- POST request
-  const [response, setResponse] = useState({ token: "", error: "" });
+  const [response, setResponse] = useState(() => {
+    // getting stored value
+    const token = localStorage.getItem("token");
+    if (token) {
+      return { token: token, error: "" };
+    }
+    return { token: "", error: "" };
+  });
+
   useEffect(() => {
     localStorage.setItem("token", response.token);
-    if (response.token !== "") history.push("/home");
+    // if (response.token !== "") history.push("/home");
     // eslint-disable-next-line
   }, [response]);
 
   // State for the team
-  const [team, setTeam] = useState([]);
+  const [team, setTeam] = useState(
+    () => JSON.parse(localStorage.getItem("team")) || []
+  );
+
+  useEffect(() => {
+    localStorage.setItem("team", JSON.stringify(team));
+    // eslint-disable-next-line
+  }, [team]);
 
   const addToTeam = (heroToAdd) => {
     setTeam([...team, heroToAdd]);
@@ -69,14 +84,14 @@ const App = () => {
         currentPage={currentPage}
       />
       <Switch>
-        <Route path="/home">
+        <Route path="/home" exact>
           <Home
             team={team}
             removeFromTeam={removeFromTeam}
             setCurrentPage={setCurrentPage}
           />
         </Route>
-        <Route path="/search">
+        <Route path="/search" exact>
           <Search
             results={results}
             setResults={setResults}
@@ -87,7 +102,7 @@ const App = () => {
             memberQuantity={team.length}
           />
         </Route>
-        <Route path="/login">
+        <Route path="/login" exact>
           <Login setResponse={setResponse} setCurrentPage={setCurrentPage} />
         </Route>
         <Route path="/" exact>
@@ -98,7 +113,7 @@ const App = () => {
           />
         </Route>
         <Route path="*">
-          <PageNotFound />
+          <PageNotFound setCurrentPage={setCurrentPage} />
         </Route>
       </Switch>
       <ToastError response={response} />
