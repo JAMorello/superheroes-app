@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# SuperHeroes App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![TODO List](/readme-assets/Banner.jpg)
 
-## Available Scripts
+**[Last relevant update: 31/10/21]**:exclamation:
 
-In the project directory, you can run:
+This project was built for the React challenge of Alkemy Labs.
 
-### `npm start`
+The following libraries are used:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [React](https://es.reactjs.org/) to create the web application user interface
+- [React Router](https://reactrouter.com/web/guides/quick-start) to facilitate navigation
+- [Formik](https://formik.org/) to build forms
+- [Axios](https://axios-http.com/) to make `POST and `GET` requests
+- [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/) for the front-end of the app
+- [React Icons](https://react-icons.github.io/react-icons/) to display some icons.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The following API is used:
 
-### `npm test`
+- [SuperHero API](https://superheroapi.com/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Table of Contents
 
-### `npm run build`
+- [How can I run the app locally?](#how-can-i-run-the-app-locally)
+- [What will I see in the app?](#what-will-i-see-in-the-app)
+- [Unresolved Issues](#unresolved-issues)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## How can I run the app locally?
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone or download the source code from Github
+2. Run `npm install` in the terminal to install the required dependencies
+3. Run `npm start` to open a local host in the browser and run the React app
+4. :exclamation: **Important:** Due to issues related to cross-origin requests, for the app running correctly, the user has to go to the [CORS everywere app](https://cors-anywhere.herokuapp.com/corsdemo) and click on the button that says "Request temporary access to the demo server". **This will allow making successfull `GET` requests to the SuperHero API.**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## What will I see in the app?
 
-### `npm run eject`
+#### Login
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+As long as the user is not logged in, will always see the Login page where he can enter his credentials. If the wrong inputs are entered, a warning message will popup.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Login](/readme-assets/Login.jpg)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Home
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+When the user has successfully logged in, the app will redirect him to the Home page. Here at the top will see the specialty of the team of heroes selected, it average of weight and height, as well the sum of all their powerstats.
 
-## Learn More
+![TeamStats](/readme-assets/TeamStats.jpg)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Below that chart, the user will see the info cards of the heros selected. Clicking on the "Detail" button will bring to the screen more info.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![TeamMember](/readme-assets/TeamMember.jpg)
 
-### Code Splitting
+#### Search
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+At the Seach page, apart of a search bar, when there are results of search (request to the SuperHero API), the hero cards will be displayed. The button may or may not be disabled and it will inform the user about the status: "Add" if the hero is available; "On Team" if the user already selected that hero; "Axis Filled" if there is already three heroes of the same allegiance in the team; and "Teamm Complete" if the team is composed of 6 heroes and have 3 heros of each posible allegiance.
 
-### Analyzing the Bundle Size
+![SearchResults](/readme-assets/SearchResults.jpg)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### Page 404
 
-### Making a Progressive Web App
+If the user tries to go to any page that doesn't exist in the app, it will be redirected to a "Error 404: Page Not Foud" alert from where can go to the Home page or Search page.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![Page404](/readme-assets/Page404.jpg)
 
-### Advanced Configuration
+## Unresolved Issues
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- In the Home page, when having more than one team member, its easy to see that not all hero cards have the same height. It varies depending of image size and name lenght.
+- It can be seen that the bottom of app, no matter in what page the user is on, have always a white stripe (thin or wide) except when in Search page with more than 4 hero cards.
+- While in mobile, the hamburger menu button can't collapse once clicked and extended the menu.
