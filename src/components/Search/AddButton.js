@@ -20,9 +20,9 @@ const AddButton = ({
         {checkExistence(hero)
           ? "On Team"
           : memberQuantity === 6
-          ? "Team Filled"
+          ? "Team Complete"
           : checkAlignment(hero)
-          ? "Axis filled"
+          ? "Axis Filled"
           : "Add"}
       </button>
     </div>
