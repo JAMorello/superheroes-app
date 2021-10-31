@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TeamList from "../Team/TeamList";
 import TeamStats from "../Team/TeamStats";
 import HeroDetail from "../Hero/HeroDetail";
@@ -8,7 +8,9 @@ import { dummyStats } from "../utilities/stats.js";
 const Home = ({ team, removeFromTeam, setCurrentPage }) => {
   // Check if token from login exist. If not, redirect.
   useToken();
-  setCurrentPage("Home");
+  useEffect(() => {
+    setCurrentPage("Home");
+  });
   const [showDetails, setShowDetails] = useState(dummyStats);
 
   return (

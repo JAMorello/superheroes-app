@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import useToken from "../../customHooks/useToken";
 import SearchForm from "../Search/SearchForm";
 import HeroResults from "../Search/HeroResults";
@@ -13,7 +14,9 @@ const Search = ({
 }) => {
   // Check if token from login exist. If not, redirect.
   useToken();
-  setCurrentPage("Search");
+  useEffect(() => {
+    setCurrentPage("Search");
+  });
 
   return (
     <>

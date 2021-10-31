@@ -1,8 +1,11 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BiError } from "react-icons/bi";
 
 const PageNotFound = ({ setCurrentPage }) => {
-  setCurrentPage("Page404");
+  useEffect(() => {
+    setCurrentPage("Page404");
+  });
   return (
     <div className="container mt-4">
       <div className="row justify-content-center">

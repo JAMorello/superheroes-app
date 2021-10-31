@@ -1,9 +1,12 @@
+import { useEffect } from "react";
 import LoginForm from "../Login/LoginForm";
 import LoginImg from "../Login/LoginImg";
 import Logo from "../Icons/Logo";
 
 const Login = ({ setResponse, setCurrentPage }) => {
-  setCurrentPage("Login");
+  useEffect(() => {
+    setCurrentPage("Login");
+  });
 
   return (
     <div className="container-fluid w-75 bg-white mt-5 rounded shadow">
