@@ -4,26 +4,30 @@
 
 **[Last relevant update: 31/10/21]**:exclamation:
 
+# Table of Contents
+
+- [About the app](#about-the-app)
+- [How can I run the app locally?](#how-can-i-run-the-app-locally)
+- [What will I see in the app?](#what-will-i-see-in-the-app)
+- [Unresolved Issues](#unresolved-issues)
+
+## About the app
+
 This project was built for the React challenge of Alkemy Labs.
+The app is responsive and his login data, as well the team assembled, persists in the local storage.
 
 The following libraries are used:
 
 - [React](https://es.reactjs.org/) to create the web application user interface
 - [React Router](https://reactrouter.com/web/guides/quick-start) to facilitate navigation
 - [Formik](https://formik.org/) to build forms
-- [Axios](https://axios-http.com/) to make `POST and `GET` requests
+- [Axios](https://axios-http.com/) to make HTTP petitions
 - [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/) for the front-end of the app
 - [React Icons](https://react-icons.github.io/react-icons/) to display some icons.
 
 The following API is used:
 
 - [SuperHero API](https://superheroapi.com/)
-
-# Table of Contents
-
-- [How can I run the app locally?](#how-can-i-run-the-app-locally)
-- [What will I see in the app?](#what-will-i-see-in-the-app)
-- [Unresolved Issues](#unresolved-issues)
 
 ## How can I run the app locally?
 
@@ -36,7 +40,7 @@ The following API is used:
 
 #### Login
 
-As long as the user is not logged in, will always see the Login page where he can enter his credentials. If the wrong inputs are entered, a warning message will popup.
+As long as the user tries to enter any route without being authenticated (logged in), would be redirected to the Login page where he can enter his credentials. If the wrong inputs are entered, a warning message will popup.
 
 ![Login](/readme-assets/Login.jpg)
 
