@@ -12,13 +12,15 @@ const AddButton = ({
         style={{
           backgroundColor: `#${checkExistence(hero) ? "7DDE33" : "563091"}`,
         }}
-        disabled={checkExistence(hero) || checkAlignment(hero)}
+        disabled={
+          checkExistence(hero) || checkAlignment(hero) || memberQuantity === 6
+        }
         onClick={() => addToTeam(hero)}
       >
-        {memberQuantity === 6
-          ? "Team Filled"
-          : checkExistence(hero)
+        {checkExistence(hero)
           ? "On Team"
+          : memberQuantity === 6
+          ? "Team Filled"
           : checkAlignment(hero)
           ? "Axis filled"
           : "Add"}
