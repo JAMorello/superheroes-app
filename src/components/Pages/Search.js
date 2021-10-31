@@ -1,6 +1,6 @@
-import useToken from "../customHooks/useToken";
-import SearchForm from "./Search/SearchForm";
-import HeroResults from "./Search/HeroResults";
+import useToken from "../../customHooks/useToken";
+import SearchForm from "../Search/SearchForm";
+import HeroResults from "../Search/HeroResults";
 
 const Search = ({
   results,
