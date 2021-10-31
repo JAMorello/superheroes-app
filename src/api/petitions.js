@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const postLogin = async (values, setIsDisabled, setResponse) => {
-  const url = "http://challenge-react.alkemy.org/";
+  const url = "//challenge-react.alkemy.org/";
 
   /* VALID DATA
   email = challenge@alkemy.org
@@ -39,7 +39,7 @@ const accessToken = "1751652158357148";
 
 // CORS ISSUE WORKAROUND
 // Go check: https://github.com/Rob--W/cors-anywhere
-// const corsHelper = "https://cors-anywhere.herokuapp.com/";
+const corsHelper = "https://cors-anywhere.herokuapp.com/";
 const corsHelper = "";
 
 const axiosInstance = axios.create({
