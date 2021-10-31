@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const postLogin = async (values, setIsDisabled, setResponse) => {
-  const url = "//challenge-react.alkemy.org/";
+  const url = "http://challenge-react.alkemy.org/";
 
   /* VALID DATA
   email = challenge@alkemy.org
@@ -39,8 +39,7 @@ const accessToken = "1751652158357148";
 
 // CORS ISSUE WORKAROUND
 // Go check: https://github.com/Rob--W/cors-anywhere
-// const corsHelper = "https://cors-anywhere.herokuapp.com/";
-const corsHelper = "";
+const corsHelper = "https://cors-anywhere.herokuapp.com/";
 
 const axiosInstance = axios.create({
   baseURL: `${corsHelper}https://superheroapi.com/api/${accessToken}/search`,
@@ -51,7 +50,7 @@ const searchAPI = async (search) => {
     const response = await axiosInstance.get(`/${search}`);
     return response.data.results;
   } catch (error) {
-    console.log(error);
+    console.log(error.response);
   }
 };
 
