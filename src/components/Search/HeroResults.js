@@ -17,7 +17,6 @@ const HeroResults = ({
             addToTeam={addToTeam}
             checkExistence={checkExistence}
             checkAlignment={checkAlignment}
-            moreThanThree={results.length > 3}
             memberQuantity={memberQuantity}
           />
         ))}

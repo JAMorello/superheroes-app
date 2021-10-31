@@ -7,11 +7,10 @@ const HeroItem = ({
   addToTeam,
   checkExistence,
   checkAlignment,
-  moreThanThree,
   memberQuantity,
 }) => {
   return (
-    <div className={`col col-sm-6 col-md-4 ${moreThanThree ? "col-lg-3" : ""}`}>
+    <div className="col-10 col-sm-6 col-md-4 col-lg-3">
       <div
         className="card border-dark shadow text-center p-2 h-70"
         style={{ width: "15rem" }}
