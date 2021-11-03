@@ -35,6 +35,7 @@ The following API is used:
 2. Run `npm install` in the terminal to install the required dependencies
 3. Run `npm start` to open a local host in the browser and run the React app
 4. :exclamation: **Important:** Due to issues related to cross-origin requests, for the app running correctly, the user has to go to the [CORS everywere app](https://cors-anywhere.herokuapp.com/corsdemo) and click on the button that says "Request temporary access to the demo server". **This will allow making successfull `GET` requests to the SuperHero API.**
+5. In the Login page, the only credentials for a correct log in are: for email `challenge@alkemy.org` and for the password `react`.
 
 ## What will I see in the app?
 
