@@ -1,8 +1,8 @@
 import { Link, useHistory } from "react-router-dom";
-import Logo from "../Icons/Logo";
-import HamburgerMenu from "../Header/HamburgerMenu";
-import NavLink from "../Header/NavLink";
-import LoginButton from "../Header/LoginButton";
+import Logo from "../components/Icons/Logo";
+import HamburgerMenu from "../components/Header/HamburgerMenu";
+import NavLink from "../components/Header/NavLink";
+import LoginButton from "../components/Header/LoginButton";
 
 /*
 ISSUE

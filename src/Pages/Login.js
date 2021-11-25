@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import LoginForm from "../Login/LoginForm";
-import LoginImg from "../Login/LoginImg";
-import Logo from "../Icons/Logo";
+import LoginForm from "../components/Login/LoginForm";
+import LoginImg from "../components/Login/LoginImg";
+import Logo from "../components/Icons/Logo";
 
 const Login = ({ setResponse, setCurrentPage }) => {
   useEffect(() => {

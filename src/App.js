@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
-import Header from "./components/Pages/Header";
-import Login from "./components/Pages/Login";
-import Home from "./components/Pages/Home";
-import Search from "./components/Pages/Search";
+import Header from "./Pages/Header";
+import Login from "./Pages/Login";
+import Home from "./Pages/Home";
+import Search from "./Pages/Search";
 import ToastError from "./components/Alerts/ToastError";
-import PageNotFound from "./components/Pages/PageNotFound";
+import PageNotFound from "./Pages/PageNotFound";
 
 /*
 ISSUES
