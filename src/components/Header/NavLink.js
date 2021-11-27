@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-const NavLink = ({ goToPage, currentPage }) => {
+const NavLink = ({ goToPage }) => {
+  const currentPage = useSelector((state) => state.page.currentPage);
+
   return (
     <li className="nav-item text-light">
       <Link

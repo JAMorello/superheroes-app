@@ -1,8 +1,8 @@
-const HeroImg = ({ hero, origin }) => {
+const HeroImg = ({ url, name, origin }) => {
   return (
     <img
-      src={hero.image.url}
-      alt={hero.name}
+      src={url}
+      alt={name}
       className={`${
         origin === "Home" ? "img-fluid rounded-start" : "rounded"
       } border border-dark`}

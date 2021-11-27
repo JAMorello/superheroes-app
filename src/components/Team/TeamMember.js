@@ -3,12 +3,13 @@ import HeroTitle from "../Hero/HeroTitle";
 import HeroStats from "../Hero/HeroStats";
 import DetailButton from "./DetailButton";
 import RemoveButton from "./RemoveButton";
+
 /*
 ISSUES:
 - Not all heroes cards result in the same height
 */
 
-const TeamMember = ({ hero, removeFromTeam, setShowDetails }) => {
+const TeamMember = ({ hero }) => {
   return (
     <div className="col-12 col-sm-6 col-lg-4">
       <div
@@ -17,12 +18,15 @@ const TeamMember = ({ hero, removeFromTeam, setShowDetails }) => {
       >
         <div className="row g-0">
           <div className="col-md-4 text-center">
-            <HeroImg hero={hero} origin="Home" />
+            <HeroImg url={hero.image.url} name={hero.name} origin="Home" />
             <div className="card-body">
-              <HeroTitle hero={hero} />
+              <HeroTitle
+                name={hero.name}
+                alignment={hero.biography.alignment}
+              />
               <div className="d-flex d-sm-grid mt-4 justify-content-evenly ">
-                <DetailButton hero={hero} setShowDetails={setShowDetails} />
-                <RemoveButton hero={hero} removeFromTeam={removeFromTeam} />
+                <DetailButton hero={hero} />
+                <RemoveButton hero={hero} />
               </div>
             </div>
           </div>

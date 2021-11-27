@@ -1,6 +1,14 @@
 import { useState, useEffect } from "react";
-import { initialStats } from "../utilities/stats.js";
 import HeroStats from "../Hero/HeroStats";
+
+let initialStats = {
+  Intelligence: 0,
+  Strength: 0,
+  Speed: 0,
+  Durability: 0,
+  Power: 0,
+  Combat: 0,
+};
 
 const TeamStats = ({ team }) => {
   const [stats, setStats] = useState(initialStats);

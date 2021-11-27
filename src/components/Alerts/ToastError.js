@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
 import { BiError } from "react-icons/bi";
 import { Toast } from "bootstrap/dist/js/bootstrap.min.js";
 
-const ToastError = ({ response }) => {
+const ToastError = () => {
+  const response = useSelector((state) => state.response);
   var [toast, setToast] = useState(false);
   const toastRef = useRef();
 

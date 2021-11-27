@@ -1,8 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { updateResponse } from "../../redux/features/responseSlice";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { postLogin } from "../../api/petitions";
 
-const LoginForm = ({ setResponse }) => {
+const LoginForm = () => {
+  const dispatch = useDispatch();
+  const [res, setRes] = useState(null);
+  const history = useHistory(); // to redirect
+
+  useEffect(() => {
+    dispatch(updateResponse(res));
+    if (res && res.token) {
+      localStorage.setItem("token", res.token);
+      history.push("/home");
+    }
+  }, [res, dispatch, history]);
+
   // State to control the "Send" button. Disable when is submiting a HTTP
   // petition
   const [isDisabled, setIsDisabled] = useState(false);
@@ -27,7 +42,8 @@ const LoginForm = ({ setResponse }) => {
         return errors;
       }}
       onSubmit={async (values) => {
-        await postLogin(values, setIsDisabled, setResponse);
+        const response = await postLogin(values, setIsDisabled);
+        setRes(response);
       }}
     >
       <Form>

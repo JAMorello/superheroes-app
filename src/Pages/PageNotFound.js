@@ -1,10 +1,13 @@
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { changeCurrentPage } from "../redux/features/pageSlice";
 import { Link } from "react-router-dom";
 import { BiError } from "react-icons/bi";
 
-const PageNotFound = ({ setCurrentPage }) => {
+const PageNotFound = () => {
+  const dispatch = useDispatch();
   useEffect(() => {
-    setCurrentPage("Page404");
+    dispatch(changeCurrentPage("Page404"));
   });
   return (
     <div className="container mt-4">

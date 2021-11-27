@@ -1,29 +1,26 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { changeCurrentPage } from "../redux/features/pageSlice";
 import TeamList from "../components/Team/TeamList";
 import TeamStats from "../components/Team/TeamStats";
 import HeroDetail from "../components/Hero/HeroDetail";
 import useToken from "../customHooks/useToken";
-import { dummyStats } from "../components/utilities/stats.js";
 
-const Home = ({ team, removeFromTeam, setCurrentPage }) => {
+const Home = () => {
   // Check if token from login exist. If not, redirect.
   useToken();
+
+  const team = useSelector((state) => state.team);
+  const dispatch = useDispatch();
   useEffect(() => {
-    setCurrentPage("Home");
+    dispatch(changeCurrentPage("Home"));
   });
-  const [showDetails, setShowDetails] = useState(dummyStats);
 
   return (
     <>
       {team && <TeamStats team={team} />}
-      {team && (
-        <TeamList
-          team={team}
-          removeFromTeam={removeFromTeam}
-          setShowDetails={setShowDetails}
-        />
-      )}
-      {showDetails && <HeroDetail hero={showDetails} />}
+      {team && <TeamList team={team} />}
+      <HeroDetail />
     </>
   );
 };

@@ -6,22 +6,17 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import "bootstrap/dist/js/bootstrap.min.js";
 import "@popperjs/core";
 import { BrowserRouter as Router } from "react-router-dom";
+import store from "./redux/store";
+import { Provider } from "react-redux";
 import App from "./App";
-
-/*
-COLOR PALLETTE
-- #563091 (VIOLETS)
-- #7C3EDE
-- #7DDE33 (GREEN)
-- #911322 (REDS)
--#DE283E
-*/
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <App />
+      </Router>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

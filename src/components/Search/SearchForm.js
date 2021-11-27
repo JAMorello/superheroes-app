@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { updateResults } from "../../redux/features/resultsSlice";
 import { Formik, Field, Form } from "formik";
 import { searchAPI } from "../../api/petitions";
 
-const SearchForm = ({ setResults }) => {
+const SearchForm = () => {
+  const dispatch = useDispatch();
   const [isDisabled, setIsDisabled] = useState(false);
 
   return (
@@ -14,7 +17,7 @@ const SearchForm = ({ setResults }) => {
             onSubmit={async (values) => {
               setIsDisabled(true);
               const results = await searchAPI(values.hero);
-              setResults(results);
+              dispatch(updateResults(results));
               setIsDisabled(false);
             }}
           >

@@ -1,11 +1,14 @@
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { changeCurrentPage } from "../redux/features/pageSlice";
 import LoginForm from "../components/Login/LoginForm";
 import LoginImg from "../components/Login/LoginImg";
 import Logo from "../components/Icons/Logo";
 
-const Login = ({ setResponse, setCurrentPage }) => {
+const Login = () => {
+  const dispatch = useDispatch();
   useEffect(() => {
-    setCurrentPage("Login");
+    dispatch(changeCurrentPage("Login"));
   });
 
   return (
@@ -21,7 +24,7 @@ const Login = ({ setResponse, setCurrentPage }) => {
               <h2 className="fw-bold text-center pt-2 pb-3">Welcome</h2>
             </div>
           </div>
-          <LoginForm setResponse={setResponse} />
+          <LoginForm />
         </div>
       </div>
     </div>

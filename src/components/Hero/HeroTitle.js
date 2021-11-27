@@ -1,9 +1,9 @@
 import Allegiance from "../Icons/Allegiance";
-const HeroTitle = ({ hero }) => {
+const HeroTitle = ({ name, alignment }) => {
   return (
     <>
-      <Allegiance hero={hero} />
-      <h5 className="card-title">{hero.name}</h5>
+      <Allegiance alignment={alignment} />
+      <h5 className="card-title">{name}</h5>
     </>
   );
 };

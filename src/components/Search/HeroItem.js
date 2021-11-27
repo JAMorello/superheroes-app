@@ -2,13 +2,7 @@ import HeroImg from "../Hero/HeroImg";
 import HeroTitle from "../Hero/HeroTitle";
 import AddButton from "./AddButton";
 
-const HeroItem = ({
-  hero,
-  addToTeam,
-  checkExistence,
-  checkAlignment,
-  memberQuantity,
-}) => {
+const HeroItem = ({ hero }) => {
   return (
     <div className="col-10 col-sm-6 col-md-4 col-lg-3">
       <div
@@ -16,17 +10,11 @@ const HeroItem = ({
         style={{ width: "15rem" }}
       >
         <div className="card-img-top">
-          <HeroImg hero={hero} origin="Search" />
+          <HeroImg url={hero.image.url} name={hero.name} origin="Search" />
           <div className="card-body">
-            <HeroTitle hero={hero} />
+            <HeroTitle name={hero.name} alignment={hero.biography.alignment} />
           </div>
-          <AddButton
-            hero={hero}
-            checkExistence={checkExistence}
-            checkAlignment={checkAlignment}
-            memberQuantity={memberQuantity}
-            addToTeam={addToTeam}
-          />
+          <AddButton hero={hero} />
         </div>
       </div>
     </div>

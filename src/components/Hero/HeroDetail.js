@@ -1,4 +1,9 @@
-const HeroDetail = ({ hero }) => {
+import { useSelector } from "react-redux";
+
+const HeroDetail = () => {
+  const hero = useSelector((state) => state.details);
+  if (!hero) return null;
+
   return (
     <div
       className="modal fade"

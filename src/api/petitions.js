@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const postLogin = async (values, setIsDisabled, setResponse) => {
+const postLogin = async (values, setIsDisabled) => {
   const url = "http://challenge-react.alkemy.org/";
 
   /* VALID DATA
@@ -9,7 +9,7 @@ const postLogin = async (values, setIsDisabled, setResponse) => {
   */
   setIsDisabled(true);
 
-  const res = { token: "", error: "" };
+  const res = { token: "", error: "", date: Date.now() };
 
   try {
     const response = await axios.post(url, {
@@ -30,7 +30,7 @@ const postLogin = async (values, setIsDisabled, setResponse) => {
     }
   }
   setIsDisabled(false);
-  setResponse(res);
+  return res;
 };
 
 // SUPERHERO API
