@@ -11,7 +11,7 @@ const LoginForm = () => {
   const history = useHistory(); // to redirect
 
   useEffect(() => {
-    dispatch(updateResponse(res));
+    if (res) dispatch(updateResponse(res));
     if (res && res.token) {
       localStorage.setItem("token", res.token);
       history.push("/home");
