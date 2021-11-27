@@ -47,6 +47,7 @@ const searchAPI = async (search) => {
     return response.data.results;
   } catch (error) {
     console.log(error.response);
+    return null;
   }
 };
 

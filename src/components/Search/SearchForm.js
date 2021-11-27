@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateResults } from "../../redux/features/resultsSlice";
+import { updateResponse } from "../../redux/features/responseSlice";
 import { Formik, Field, Form } from "formik";
 import { searchAPI } from "../../api/petitions";
 
@@ -17,7 +18,16 @@ const SearchForm = () => {
             onSubmit={async (values) => {
               setIsDisabled(true);
               const results = await searchAPI(values.hero);
-              dispatch(updateResults(results));
+              if (results) {
+                dispatch(updateResults(results));
+              } else {
+                dispatch(
+                  updateResponse({
+                    error: "Found no results",
+                    date: Date.now(),
+                  })
+                );
+              }
               setIsDisabled(false);
             }}
           >
