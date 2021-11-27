@@ -33,12 +33,8 @@ const postLogin = async (values, setIsDisabled) => {
   return res;
 };
 
-// SUPERHERO API
-// ACCESS TOKEN: 1751652158357148
-const accessToken = "1751652158357148";
-
 const axiosInstance = axios.create({
-  baseURL: `https://superheroapi.com/api.php/${accessToken}/search`,
+  baseURL: `https://superheroapi.com/api.php/${process.env.REACT_APP_API_TOKEN}/search`,
 });
 
 const searchAPI = async (search) => {
