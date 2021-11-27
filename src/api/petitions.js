@@ -37,16 +37,8 @@ const postLogin = async (values, setIsDisabled) => {
 // ACCESS TOKEN: 1751652158357148
 const accessToken = "1751652158357148";
 
-// CORS ISSUE WORKAROUND
-// Go check: https://github.com/Rob--W/cors-anywhere
-const corsHelper = "https://cors-anywhere.herokuapp.com/";
-/*
-Due to issues related to cross-origin requests, for the app running correctly, the user has to go to the [CORS everywere app](https://cors-anywhere.herokuapp.com/corsdemo) and click on the button that says "Request temporary access to the demo server". 
-**This will allow making successfull `GET` requests to the SuperHero API.**
-*/
-
 const axiosInstance = axios.create({
-  baseURL: `${corsHelper}https://superheroapi.com/api/${accessToken}/search`,
+  baseURL: `https://superheroapi.com/api.php/${accessToken}/search`,
 });
 
 const searchAPI = async (search) => {
