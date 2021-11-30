@@ -19,6 +19,7 @@ The app is responsive and his login data, as well the team assembled, persists i
 The following libraries are used:
 
 - [React](https://es.reactjs.org/) to create the web application user interface
+- [Redux Toolkit](https://redux-toolkit.js.org/) to manage the global state of the application
 - [React Router](https://reactrouter.com/web/guides/quick-start) to facilitate navigation
 - [Formik](https://formik.org/) to build forms
 - [Axios](https://axios-http.com/) to make HTTP petitions
@@ -34,8 +35,7 @@ The following API is used:
 1. Clone or download the source code from Github
 2. Run `npm install` in the terminal to install the required dependencies
 3. Run `npm start` to open a local host in the browser and run the React app
-4. :exclamation: **Important:** Due to issues related to cross-origin requests, for the app running correctly, the user has to go to the [CORS everywere app](https://cors-anywhere.herokuapp.com/corsdemo) and click on the button that says "Request temporary access to the demo server". **This will allow making successfull `GET` requests to the SuperHero API.**
-5. In the Login page, the only credentials for a correct log in are: for email `challenge@alkemy.org` and for the password `react`.
+4. In the Login page, the only credentials for a correct log in are: for email `challenge@alkemy.org` and for the password `react`.
 
 ## What will I see in the app?
 
@@ -70,5 +70,3 @@ If the user tries to go to any page that doesn't exist in the app, it will be re
 ## Unresolved Issues
 
 - In the Home page, when having more than one team member, its easy to see that not all hero cards have the same height. It varies depending of image size and name lenght.
-- It can be seen that the bottom of app, no matter in what page the user is on, have always a white stripe (thin or wide) except when in Search page with more than 4 hero cards.
-- While in mobile, the hamburger menu button can't collapse once clicked and extended the menu.
